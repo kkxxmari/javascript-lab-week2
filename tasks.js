@@ -1,39 +1,40 @@
-// Exercise 3(a)
+// a small list to start with
 const taskList = ["Read the notes", "Practise JavaScript"];
 
-// Exercise 3(b)
+// put a new task at the end of the list
 const addTask = task => {
     taskList.push(task);
-    console.log("Added task: " + task);
+    console.log(task + " is now on my list");
 
     return taskList.length;
 };
 
-// Exercise 3(c)
+// show every task with its number
 const listAllTasks = () => {
-    console.log("My tasks:");
+    console.log("Things I need to do:");
 
-    taskList.forEach(task => {
-        console.log(task);
+    taskList.forEach((task, position) => {
+        console.log(position + 1 + ". " + task);
     });
 };
 
-// Exercise 3(d)
+// look for the task first and remove it if it is there
 const deleteTask = task => {
     const position = taskList.indexOf(task);
 
-    if (position !== -1) {
-        taskList.splice(position, 1);
-        console.log("Deleted task: " + task);
-    } else {
-        console.log("Task not found: " + task);
+    if (position === -1) {
+        console.log("I could not find " + task);
+        return taskList.length;
     }
+
+    taskList.splice(position, 1);
+    console.log(task + " is finished");
 
     return taskList.length;
 };
 
-console.log("Tasks after adding: " + addTask("Finish the lab"));
+console.log("Number of tasks: " + addTask("Finish the lab"));
 listAllTasks();
 
-console.log("Tasks after deleting: " + deleteTask("Read the notes"));
+console.log("Number of tasks: " + deleteTask("Read the notes"));
 listAllTasks();
