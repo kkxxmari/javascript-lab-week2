@@ -1,27 +1,24 @@
-// Exercise 2(a)
-const getModuleName = () => "Data Representation & Querying";
+// this one just gives back the module name
+const moduleTitle = () => "Data Representation & Querying";
 
-console.log(getModuleName());
+console.log(moduleTitle());
 
-// Exercise 2(b)
-const showValue = value => value;
+// whatever I put in here comes back unchanged
+const keepSameValue = item => item;
 
-console.log(showValue("Learning arrow functions"));
+console.log(keepSameValue("Trying out arrow functions"));
 
-// Exercise 2(c)
-const findTotal = (firstNumber, secondNumber) => firstNumber + secondNumber;
+// adding two numbers together
+const calculateSum = (a, b) => a + b;
 
-console.log(findTotal(7, 13));
+const result = calculateSum(8, 12);
+console.log("The total is " + result);
 
-// Exercise 2(d)
+// change the ages below 70 and leave the last one alone
 const ages = [25, 31, 42, 77];
 
-const doubledAges = ages.map(age => {
-    if (age < 70) {
-        return age * 2;
-    }
+const changedAges = ages.map(currentAge =>
+    currentAge < 70 ? currentAge * 2 : currentAge
+);
 
-    return age;
-});
-
-console.log(doubledAges);
+console.log(changedAges);
